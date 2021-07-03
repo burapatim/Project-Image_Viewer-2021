@@ -46,7 +46,7 @@ class MyFrame extends JFrame implements ComponentListener, MouseListener, Action
     static String path;
 
     public MyFrame() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") + File.separator + "iconP.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") + File.separator + "iconP.png"));                           //สร้าง Icon ของโปรแกรม
         setTitle("IMAGE Viewer");
         setBounds(0, 0, fWidth, fHeight);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);      //EXIT_ON_CLOSE คือ เมื่อกด x ตรงมุมขวาบนจะปิดทั้งหมดของโปรแกรม แต่ถ้าใช้ HIDE_ON_CLOSE จะแค่ซ่อนหน้าต่างเท่านั้น
@@ -189,6 +189,7 @@ class MyFrameHelp extends JFrame {                                              
     JTextArea txtAr = new JTextArea();
      
     public MyFrameHelp() {
+         setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") + File.separator + "iconP.png"));                           //สร้าง Icon ของโปรแกรม
         add(pnl);
         setTitle("About Image Viewer");
         setBounds(0, 0, 400, 400);
@@ -196,7 +197,7 @@ class MyFrameHelp extends JFrame {                                              
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);    //กำหนดให้เมื่อกดปิด frame นี้ให้แค่ซ่อนหน้าต่างไม่ต้องปิดทั้งโปรแกรม
 
-        txtAr.setBounds(200, 30, 150, 320);
+        txtAr.setBounds(200, 20, 150, 330);
         txtAr.setBorder(BorderFactory.createRaisedBevelBorder());
         txtAr.setFont(new Font("Tahoma", 1, 15));
         txtAr.setText("    โปรแกรมที่เกี่ยว\nกับรูปภาพ จะสามารถ\nนำรูปภาพเข้ามาได้\nและแสดงกลางหน้า\nต่างของโปรแกรม\n และ สามมารถย่อ\nหรือขยายได้ ซึ้ง\nมีประโยชน์ต่อ ผู้ใช้\nอย่างมาก");
@@ -209,7 +210,7 @@ class MyFrameHelp extends JFrame {                                              
  
 }
 class Panel2  extends JPanel{                                                                                 //การใช้ paintComponent ไม่สามารถ ใช้งานบนเฟรมได้เราจึง นำมาสร้างบน Panel 
-Image ImgPnl = Toolkit.getDefaultToolkit().createImage(System.getProperty("user.dir") + File.separator + "background.png");         // นำ Path ของไฟล์ มาใส่ในตังแปร ImgPnl
+Image ImgPnl = Toolkit.getDefaultToolkit().createImage(System.getProperty("user.dir") + File.separator + "porn.png");         // นำ Path ของไฟล์ มาใส่ในตังแปร ImgPnl
 
     public Panel2()  {
         setBounds(0, 0, 400, 400);
@@ -219,7 +220,7 @@ Image ImgPnl = Toolkit.getDefaultToolkit().createImage(System.getProperty("user.
       @Override
       protected void paintComponent(Graphics g) {
          
-        g.drawImage(ImgPnl, 20, 20,180,350,0,0,258,216 ,this);                                          //วาดรูป("รูปที่ต้องการ , จุดเริ่มต้น , จุดเริ่มต้น , จุดเริ่มต้น + ความกว้าง , จุดเริ่มต้น + ความสูง , 0 , 0 , ความกว้างเดิม , ความสูงเดิม")
+        g.drawImage(ImgPnl, 20, 20,180,360,0,0,575,375 ,this);                                          //วาดรูป("รูปที่ต้องการ , จุดเริ่มต้น , จุดเริ่มต้น , จุดเริ่มต้น + ความกว้าง , จุดเริ่มต้น + ความสูง , 0 , 0 , ความกว้างเดิม , ความสูงเดิม")
        
        
     }
