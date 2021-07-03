@@ -187,7 +187,7 @@ class MyPanel extends JPanel {        //การจะเรียกใช้ 
 class MyFrameHelp extends JFrame {                                              //สร้างเฟรมอีกเฟรมนึงขึ้นมา
     Panel2 pnl = new Panel2();
     JTextArea txtAr = new JTextArea();
-     Image Img;
+     
     public MyFrameHelp() {
         add(pnl);
         setTitle("About Image Viewer");
@@ -196,29 +196,32 @@ class MyFrameHelp extends JFrame {                                              
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);    //กำหนดให้เมื่อกดปิด frame นี้ให้แค่ซ่อนหน้าต่างไม่ต้องปิดทั้งโปรแกรม
 
-        txtAr.setBounds(200, 50, 150, 300);
+        txtAr.setBounds(200, 30, 150, 320);
         txtAr.setBorder(BorderFactory.createRaisedBevelBorder());
         txtAr.setFont(new Font("Tahoma", 1, 15));
-        txtAr.setText("โปรแกรมนี้เป็น\nโปรแกรมที่เกี่ยว\nกับรูปภาพ \nจะสามารถนำรูปภาพ\nเข้ามาได้และแสดง\nกลางหน้าต่าง\nของโปรแกรม\n และ สามมารถย่อ\nหรือขยายได้ ซึ้ง\nมีประโยชน์ต่อ\nผู้ใช้อย่างมาก");
-        Image Img;
+        txtAr.setText("    โปรแกรมที่เกี่ยว\nกับรูปภาพ จะสามารถ\nนำรูปภาพเข้ามาได้\nและแสดงกลางหน้า\nต่างของโปรแกรม\n และ สามมารถย่อ\nหรือขยายได้ ซึ้ง\nมีประโยชน์ต่อ ผู้ใช้\nอย่างมาก");
+
         pnl.add(txtAr);
-        repaint();
+        
 
     }
 
  
 }
-class Panel2  extends JPanel{
-Image Img;
+class Panel2  extends JPanel{                                                                                 //การใช้ paintComponent ไม่สามารถ ใช้งานบนเฟรมได้เราจึง นำมาสร้างบน Panel 
+Image ImgPnl = Toolkit.getDefaultToolkit().createImage(System.getProperty("user.dir") + File.separator + "background.png");         // นำ Path ของไฟล์ มาใส่ในตังแปร ImgPnl
+
     public Panel2()  {
         setBounds(0, 0, 400, 400);
         setLayout(null);
-        
+        setBackground(Color.red);
     }
+      @Override
       protected void paintComponent(Graphics g) {
-         Img = Toolkit.getDefaultToolkit().createImage(System.getProperty("user.dir") + File.separator + "mini.jpg");
-        g.drawImage(Img, 20, 20, 180, 380, 0, 0, 1568, 1044, this);
-        repaint();
+         
+        g.drawImage(ImgPnl, 20, 20,180,350,0,0,258,216 ,this);                                          //วาดรูป("รูปที่ต้องการ , จุดเริ่มต้น , จุดเริ่มต้น , จุดเริ่มต้น + ความกว้าง , จุดเริ่มต้น + ความสูง , 0 , 0 , ความกว้างเดิม , ความสูงเดิม")
+       
+       
     }
     
 }
